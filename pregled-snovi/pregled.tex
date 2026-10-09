@@ -8,10 +8,27 @@
 \usepackage{enumitem}
 \usepackage{booktabs}
 \usepackage{float}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{titlesec}
 \usepackage{hyperref}
+\usetikzlibrary{arrows.meta}
+
+\definecolor{barvaNaslovov}{HTML}{245B78}
+\definecolor{barvaPomembno}{HTML}{B3261E}
+\definecolor{barvaPrimerov}{HTML}{626B73}
+\definecolor{barvaNaslovaPrimera}{HTML}{454B50}
+\definecolor{barvaDrugiVektor}{HTML}{39835A}
+\titleformat{\section}{\Large\bfseries\color{barvaNaslovov}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{barvaNaslovov}}{\thesubsection}{1em}{}
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{2}
+\hypersetup{colorlinks=true,linkcolor=barvaNaslovov,urlcolor=barvaNaslovov}
 
 \newcommand{\vect}[1]{\vec{#1}}
 \newcommand{\abs}[1]{|#1|}
+\newcommand{\pomembno}[1]{\textcolor{barvaPomembno}{#1}}
+\newenvironment{primer}{\par\begingroup\color{barvaPrimerov}}{\par\endgroup}
 
 \begin{document}
 
@@ -19,67 +36,100 @@
 \author{}
 \date{}
 \maketitle
-
-\tableofcontents
-\newpage
-
 \section{Osnove o vektorjih}
-
-Vektor je usmerjena daljica, ki ima:
-\begin{itemize}[itemsep=4pt]
-    \item smer,
-    \item usmerjenost,
-    \item dolžino (velikost).
-\end{itemize}
-
-Vektor običajno označimo z $
-\vect{AB}$ ali s kratico $
-\vect{a}$.
 
 \subsection{Definicija}
 
-Vektor je določen z:
-\begin{itemize}[itemsep=4pt]
-    \item začetno točko,
-    \item končno točko,
-    \item smerjo in dolžino.
-\end{itemize}
+\noindent
+\begin{minipage}[t]{0.58\textwidth}
+\vspace{0pt}
+Vektor je določen s smerjo, usmerjenostjo in dolžino.
 
-Če sta dva vektorja enaka, sta vzporedna, imata enako dolžino in enako usmerjenost.\
-Ničelni vektor je $
-\vect{0}$, ki ima dolžino $0$.\
-Nasprotni vektor vektorju $\vect{a}$ je $-\vect{a}$.
+\medskip
+\textbf{Enaka vektorja} sta vzporedna, enako dolga in enako usmerjena.
 
-\subsection{Dolžina vektorja}
+\medskip
+\textbf{Nasprotni vektor} $-\vect{a}$ je enako dolg kot $\vect{a}$, vendar usmerjen v nasprotno smer.
 
-Dolžina vektorja $\vect{AB}$ je zapisano kot
-\[
-\abs{\vect{AB}} = d(A,B).
-\]
+\medskip
+\textbf{Ničelni vektor} $\vect{0}$ ima dolžino $0$.
 
-Če je vektor podan z začetno in končno točko, potem je njegova dolžina razdalja med tema točkama.
+\medskip
+\textbf{Oznaka:} Vektor označimo z $\vect{AB}$ ali z $\vect{a}$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[x=0.68cm,y=0.58cm,>=Stealth]
+    \color{barvaNaslovov}
+    \node[font=\small\bfseries] at (3.5,8.0) {Enaka vektorja};
+    \draw[->,line width=1.2pt] (0.5,7.1) -- (5.2,7.1)
+        node[midway,above=2pt,fill=white,inner sep=1pt] {$\vect{a}$};
+    \draw[->,line width=1.2pt] (0.5,6.1) -- (5.2,6.1)
+        node[midway,above=2pt,fill=white,inner sep=1pt] {$\vect{b}$};
 
-\subsection{Primer}
+    \node[font=\small\bfseries] at (3.5,4.9) {Nasprotna vektorja};
+    \draw[->,line width=1.2pt] (0.5,4.0) -- (5.2,4.0)
+        node[midway,above=2pt,fill=white,inner sep=1pt] {$\vect{a}$};
+    \draw[->,line width=1.2pt] (5.2,3.0) -- (0.5,3.0)
+        node[midway,above=2pt,fill=white,inner sep=1pt] {$-\vect{a}$};
 
-Naj bo $A(1,2)$ in $B(4,5)$. Potem je
-\[
-\abs{\vect{AB}} = \sqrt{(4-1)^2+(5-2)^2}=\sqrt{9+9}=3\sqrt{2}.
-\]
+    \node[font=\small\bfseries] at (3.5,1.8) {Ničelni vektor};
+    \fill (2.85,0.65) circle (2.2pt);
+    \node[right=5pt] at (2.85,0.65) {$\vect{0}$};
+    \node[font=\scriptsize] at (3.5,0.0) {začetek = konec};
+\end{tikzpicture}
+\end{minipage}
+
 
 \section{Seštevanje in odštevanje vektorjev}
 
-Vektorje lahko seštevamo in odštevamo grafično in algebraično.
+Vektorje lahko seštevamo in odštevamo grafično ali z računanjem komponent.
 
 \subsection{Grafično seštevanje}
 
-\textbf{Trikotniško pravilo:} začetku drugega vektorja premaknemo v konec prvega.\
-Vektor, ki povezuje začetek prvega in konec drugega, je vsota.
+Vektorja seštejemo tako, da ju postavimo po vrsti ali uporabimo paralelogramsko pravilo. V obeh primerih je njuna vsota prikazana z rdečim vektorjem.
 
-\[
-\vect{a} + \vect{b}
-\]
+\medskip
+\noindent\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
+\centering
+\textbf{Trikotniško pravilo}\par\smallskip
+Začetek $\vect{b}$ postavimo v konec $\vect{a}$. Vsota gre od začetka $\vect{a}$ do konca $\vect{b}$. \vspace{2mm}
 
-\textbf{Paralelogramsko pravilo:} če imata vektorja skupno izhodišče, narišemo paralelogram. Diagonala od skupnega izhodišča je vsota.
+\begin{tikzpicture}[x=0.9cm,y=0.72cm,>=Stealth]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (2.2,0);
+    \coordinate (C) at (3.3,1.7);
+    \draw[->,line width=1.25pt,barvaNaslovov] (O) -- (A)
+        node[midway,below=3pt] {$\vect{a}$};
+    \draw[->,line width=1.25pt,barvaDrugiVektor] (A) -- (C)
+        node[midway,right=2pt] {$\vect{b}$};
+    \draw[->,line width=1.5pt,barvaPomembno] (O) -- (C)
+        node[midway,above] {$\vect{a}+\vect{b}$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
+\centering
+\textbf{Paralelogramsko pravilo}\par\smallskip
+Vektorja začneta v isti točki. Diagonala paralelograma je njuna vsota. \vspace{2mm}
+
+\begin{tikzpicture}[x=0.9cm,y=0.72cm,>=Stealth]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (2.2,0);
+    \coordinate (B) at (1.1,1.7);
+    \coordinate (C) at (3.3,1.7);
+    \draw[->,line width=1.25pt,barvaNaslovov] (O) -- (A)
+        node[midway,below=3pt] {$\vect{a}$};
+    \draw[->,line width=1.25pt,barvaDrugiVektor] (O) -- (B)
+        node[midway,left=2pt] {$\vect{b}$};
+    \draw[densely dashed,barvaNaslovov] (B) -- (C);
+    \draw[densely dashed,barvaDrugiVektor] (A) -- (C);
+    \draw[->,line width=1.5pt,barvaPomembno] (O) -- (C)
+        node[midway,above] {$\vect{a}+\vect{b}$};
+\end{tikzpicture}
+\end{minipage}
 
 \subsection{Lastnosti seštevanja}
 
@@ -94,82 +144,107 @@ Vektor, ki povezuje začetek prvega in konec drugega, je vsota.
 
 Odštevanje definiramo kot prištevanje nasprotnega vektorja:
 \[
-\vect{a}-\vect{b}=\vect{a}+(-\vect{b}).
+\pomembno{\vect{a}-\vect{b}=\vect{a}+(-\vect{b}).}
 \]
 
-\subsection{Primer}
 
-Če je $\vect{a}=(2,3)$ in $\vect{b}=(1,1)$, potem je
+\noindent\begin{minipage}[c]{0.57\textwidth}
+\section{Množenje vektorja s skalarjem}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.38\textwidth}
+\centering
+\begin{tikzpicture}[x=0.72cm,y=0.72cm,>=Stealth]
+    \draw[->,line width=1.3pt,barvaNaslovov] (0,0) -- (2,0)
+        node[midway,below=3pt] {$\vect{a}$};
+    \draw[->,line width=1.5pt,barvaPomembno] (0,0.45) -- (4,0.45)
+        node[midway,above=3pt,fill=white,inner sep=1pt] {$2\vect{a}$};
+\end{tikzpicture}
+\end{minipage}
+
+Skalar je realno število. Vektor $\vect{a}$, pomnožen s skalarjem $k$, zapišemo kot
+\(
+\pomembno{k\vect{a}.}
+\)
+
+
+\subsection{Pravila}
+
+\begin{itemize}[itemsep=4pt]
+    \item $\pomembno{\abs{k\vect{a}}=|k|\,\abs{\vect{a}}}$,
+    \item $k>0$: ista usmerjenost,
+    \item $k<0$: nasprotna usmerjenost,
+    \item $k=0$: dobimo ničelni vektor.
+\end{itemize}
+
+\section{Komponente vektorja}
+
+Vektor lahko zapišemo s komponentami v koordinatnem sistemu. 
+\[
+\pomembno{\vect{a}=(a_1,a_2,a_3)=a_1\vect{i}+a_2\vect{j}+a_3\vect{k}.}
+\]
+
+\subsection{Operacije s komponentami}
+
+\begin{itemize}[itemsep=4pt]
+    \item seštevanje: $\pomembno{\vect{a}+\vect{b}=(a_1+b_1,a_2+b_2,a_3+b_3)}$,
+    \item odštevanje: $\pomembno{\vect{a}-\vect{b}=(a_1-b_1,a_2-b_2,a_3-b_3)}$,
+    \item množenje s skalarjem: $\pomembno{k\vect{a}=(ka_1,ka_2,ka_3)}$.
+\end{itemize}
+
+
+\subsection{\texorpdfstring{\textcolor{barvaNaslovaPrimera}{Primer}}{Primer}}
+\begin{primer}
+Če je $\vect{a}=(2,3)$ in $\vect{b}=(1,1)$, seštejemo oziroma odštejemo istoležna koordinata:
 \[
 \vect{a}+\vect{b}=(3,4),
 \qquad
 \vect{a}-\vect{b}=(1,2).
 \]
-
-\section{Množenje vektorja s skalarjem}
-
-Skalar je realno število. Vektor $\vect{a}$ pomnožimo s skalarjem $k$:
+\end{primer}
+\subsection{\texorpdfstring{\textcolor{barvaNaslovaPrimera}{Primer}}{Primer}}
+\begin{primer}
+Če je $\vect{a}=(2,1,3)$ in $\vect{b}=(4,-1,2)$, seštejemo istoležne komponente; pri množenju vsako komponento pomnožimo z $2$:
 \[
-k\vect{a}.
+\vect{a}+\vect{b}=(6,0,5),
+\qquad
+2\vect{a}=(4,2,6).
+\]
+\end{primer}
+
+
+\subsection{Dolžina vektorja}
+
+Dolžina vektorja $\vect{AB}$ je razdalja med točkama $A$ in $B$:
+\[
+\pomembno{\abs{\vect{AB}}=d(A,B)=\sqrt{(b_1-a_1)^2+(b_2-a_2)^2+(b_3-a_3)^2}}.
 \]
 
-To pomeni, da se dolžina vektorja spremeni za faktor $\abs{k}$, smer pa ostane ista, če je $k>0$, in se obrne, če je $k<0$.
-
-\subsection{Pravila}
-
-\begin{itemize}[itemsep=4pt]
-    \item $\abs{k\vect{a}} = \abs{k}\,\abs{\vect{a}}$,
-    \item $k>0$: ista smer,
-    \item $k<0$: nasprotna smer,
-    \item $k=0$: ničelni vektor.
-\end{itemize}
-
+\subsection{\texorpdfstring{\textcolor{barvaNaslovaPrimera}{Primer}}{Primer}}
+\begin{primer}
+Naj bo $A(1,2)$ in $B(4,5)$. Razliko koordinat kvadriramo, seštejemo in izračunamo koren:
+\[
+\pomembno{\abs{\vect{AB}}=\sqrt{(4-1)^2+(5-2)^2}=\sqrt{9+9}=3\sqrt{2}.}
+\]
+\end{primer}
 \subsection{Enotski vektor}
 
-Enotski vektor v smeri $\vect{a}$ je
+Enotski vektor v smeri neničelnega vektorja $\vect{a}$ ima dolžino $1$:
 \[
-\hat{\vect{a}} = \frac{1}{\abs{\vect{a}}}\vect{a}, \qquad \abs{\hat{\vect{a}}}=1.
+\pomembno{\vect{a}_e=\frac{1}{\abs{\vect{a}}}\vect{a},\qquad \abs{\vect{a}_e}=1.}
 \]
 
-\subsection{Primer}
-
-Naj bo $\vect{a}=(3,4)$. Potem je
+\subsection{\texorpdfstring{\textcolor{barvaNaslovaPrimera}{Primer}}{Primer}}
+\begin{primer}
+Naj bo $\vect{a}=(3,4)$. Njegova dolžina je $5$, zato vsako koordinato delimo s $5$:
 \[
-\abs{\vect{a}} = 5,
+\abs{\vect{a}}=5,
 \qquad
-\hat{\vect{a}} = \left(\frac{3}{5},\frac{4}{5}\right).
+\vect{a}_e=\left(\frac{3}{5},\frac{4}{5}\right).
 \]
+\end{primer}
 
-\section{Odvisni in neodvisni vektorji}
 
-Vektorji so linearno odvisni, če lahko enega zapišemo kot linearno kombinacijo ostalih.
 
-\subsection{Definicija}
-
-Vektorji $\vect{a}$ in $\vect{b}$ sta linearno neodvisna, če iz
-\[
-\alpha\vect{a}+\beta\vect{b}=\vect{0}
-\]
-
-sledi
-\[
-\alpha=0 \quad \text{in} \quad \beta=0.
-\]
-
-V nasprotnem primeru so linearno odvisni.
-
-\subsection{Geometrijska interpretacija}
-
-- Dva vektorja sta linearno neodvisna, če nista vzporedna.
-- Če sta vzporedna, sta linearno odvisna.
-- V ravnini sta za bazo potrebna dva linearno neodvisna vektorja.
-
-\subsection{Primer}
-
-Vektorja $\vect{a}=(1,2)$ in $\vect{b}=(2,4)$ sta linearno odvisna, saj je
-\[
-\vect{b}=2\vect{a}.
-\]
 
 \section{Baza in linearne kombinacije}
 
@@ -177,35 +252,81 @@ Vektorja $\vect{a}=(1,2)$ in $\vect{b}=(2,4)$ sta linearno odvisna, saj je
 
 Linearna kombinacija vektorjev $\vect{a}$ in $\vect{b}$ je izraz oblike
 \[
-\alpha\vect{a}+\beta\vect{b}, \qquad \alpha,\beta\in\mathbb{R}.
+\pomembno{\alpha\vect{a}+\beta\vect{b},\qquad \alpha,\beta\in\mathbb{R}.}
 \]
 
 \subsection{Baza ravnine}
 
 Dva linearno neodvisna vektorja $\vect{a},\vect{b}$ tvorita bazo ravnine. Vsak vektor v ravnini lahko zapišemo kot
 \[
-\vect{v}=x\vect{a}+y\vect{b}.
+\pomembno{\vect{v}=x\vect{a}+y\vect{b}.}
 \]
 
 \subsection{Baza prostora}
 
 Tri linearno neodvisna vektorja v prostoru tvorijo bazo prostora. Vsak vektor v prostoru lahko zapišemo kot
 \[
-\vect{v}=x\vect{a}+y\vect{b}+z\vect{c}.
+\pomembno{\vect{v}=x\vect{a}+y\vect{b}+z\vect{c}.}
 \]
 
-\subsection{Primer}
+\subsection{\texorpdfstring{\textcolor{barvaNaslovaPrimera}{Primer}}{Primer}}
+\begin{primer}
+Zapis $\vect{u}=2\vect{a}-3\vect{b}+5\vect{c}$ je linearna kombinacija vektorjev $\vect{a},\vect{b},\vect{c}$; koeficienti so $2$, $-3$ in $5$.
+\end{primer}
 
-Naj bo $\vect{u}=2\vect{a}-3\vect{b}+5\vect{c}$. To je linearna kombinacija vektorjev $\vect{a},\vect{b},\vect{c}$.
+\section{Odvisni in neodvisni vektorji}
+
+Vektorji so linearno odvisni, če lahko enega zapišemo kot linearno kombinacijo ostalih.
+
+\subsection{Definicija}
+
+Vektorja $\vect{a}$ in $\vect{b}$ sta linearno neodvisna, če iz
+\[
+\pomembno{\alpha\vect{a}+\beta\vect{b}=\vect{0}}
+\]
+sledi
+\[
+\pomembno{\alpha=0\quad\text{in}\quad\beta=0.}
+\]
+Če obstaja tudi kakšna druga rešitev, sta vektorja linearno odvisna.
+
+\subsection{Geometrijska interpretacija}
+
+\begin{itemize}[itemsep=4pt]
+    \item Če sta vektorja vzporedna, sta linearno odvisna.
+    \item V ravnini za bazo potrebujemo dva linearno neodvisna vektorja.
+\end{itemize}
+
+
+\subsection{\texorpdfstring{\textcolor{barvaNaslovaPrimera}{Primer}}{Primer}}
+\begin{primer}
+Vektorja $\vect{a}=(2,3)$ in $\vect{b}=(4,1)$ sta linearno neodvisna, saj enačba
+\[
+\alpha\vect{a}+\beta\vect{b}=\vect{0}
+\]
+po koordinatah da sistem
+\[
+\begin{cases}
+2\alpha+4\beta=0,\\
+3\alpha+\beta=0.
+\end{cases}
+\]
+Iz druge enačbe sledi $\beta=-3\alpha$. Če to vstavimo v prvo enačbo, dobimo
+\[
+2\alpha-12\alpha=0
+\quad\Rightarrow\quad
+\alpha=0.
+\]
+Zato je tudi $\beta=0$. Edina rešitev je torej $\alpha=\beta=0$, zato sta vektorja linearno neodvisna.
+\end{primer}
+
 
 \section{Skalarni produkt}
 
-Skalarni produkt dveh vektorjev je število:
+Skalarni produkt dveh vektorjev je število. Če je $\varphi$ kot med njima, velja
 \[
-\vect{a}\cdot\vect{b}=\abs{\vect{a}}\,\abs{\vect{b}}\cos\varphi,
+\pomembno{\vect{a}\cdot\vect{b}=\abs{\vect{a}}\,\abs{\vect{b}}\cos\varphi.}
 \]
-
-kjer je $\varphi$ kot med vektorjema.
 
 \subsection{Lastnosti}
 
@@ -217,53 +338,27 @@ kjer je $\varphi$ kot med vektorjema.
 
 \subsection{Pomen skalarnega produkta}
 
-- Če je $\varphi=90^\circ$, potem $\vect{a}\cdot\vect{b}=0$; vektorja sta pravokotna.
-- Če je $\varphi=0^\circ$, potem $\vect{a}\cdot\vect{b}=\abs{\vect{a}}\abs{\vect{b}}$.
-- Če je $\varphi=180^\circ$, potem $\vect{a}\cdot\vect{b}=-\abs{\vect{a}}\abs{\vect{b}}$.
+\begin{itemize}[itemsep=4pt]
+    \item Če je $\varphi=90^\circ$, je $\vect{a}\cdot\vect{b}=0$; vektorja sta pravokotna.
+    \item Če je $\varphi=0^\circ$, je $\vect{a}\cdot\vect{b}=\abs{\vect{a}}\abs{\vect{b}}$.
+    \item Če je $\varphi=180^\circ$, je $\vect{a}\cdot\vect{b}=-\abs{\vect{a}}\abs{\vect{b}}$.
+\end{itemize}
 
 \subsection{Dolžina vektorja preko skalarnega produkta}
 
 \[
-\abs{\vect{a}} = \sqrt{\vect{a}\cdot\vect{a}}.
+\pomembno{\abs{\vect{a}}=\sqrt{\vect{a}\cdot\vect{a}}.}
 \]
 
-\subsection{Primer}
-
-Naj bo $\vect{a}=(3,4)$ in $\vect{b}=(1,2)$. Potem je
+\subsection{\texorpdfstring{\textcolor{barvaNaslovaPrimera}{Primer}}{Primer}}
+\begin{primer}
+Naj bo $\vect{a}=(3,4)$ in $\vect{b}=(1,2)$. Pomnožimo istoležne koordinate in seštejemo:
 \[
 \vect{a}\cdot\vect{b}=3\cdot1+4\cdot2=11.
 \]
+\end{primer}
 
-\section{Komponente vektorja}
 
-Vektor lahko zapišemo s komponentami v koordinatnem sistemu.
-
-Če je
-\[
-\vect{a}=(a_1,a_2,a_3),
-\]
-
-potem je to vektor, ki ga lahko zapišemo tudi kot
-\[
-\vect{a}=a_1\vect{i}+a_2\vect{j}+a_3\vect{k}.
-\]
-
-\subsection{Operacije s komponentami}
-
-\begin{itemize}[itemsep=4pt]
-    \item seštevanje: $\vect{a}+\vect{b}=(a_1+b_1,a_2+b_2,a_3+b_3)$,
-    \item odštevanje: $\vect{a}-\vect{b}=(a_1-b_1,a_2-b_2,a_3-b_3)$,
-    \item množenje s skalarjem: $k\vect{a}=(ka_1,ka_2,ka_3)$.
-\end{itemize}
-
-\subsection{Primer}
-
-Če je $\vect{a}=(2,1,3)$ in $\vect{b}=(4,-1,2)$, potem je
-\[
-\vect{a}+\vect{b}=(6,0,5),
-\qquad
-2\vect{a}=(4,2,6).
-\]
 
 \section{Skalarni produkt s komponentami}
 
@@ -271,26 +366,25 @@ potem je to vektor, ki ga lahko zapišemo tudi kot
 \[
 \vect{a}=(a_1,a_2,a_3),\qquad \vect{b}=(b_1,b_2,b_3),
 \]
-
 potem je
 \[
-\vect{a}\cdot\vect{b}=a_1b_1+a_2b_2+a_3b_3.
+\pomembno{\vect{a}\cdot\vect{b}=a_1b_1+a_2b_2+a_3b_3.}
 \]
+To je običajen način računanja skalarnega produkta v koordinatnem sistemu.
 
-To je najpogostejša formula za računanje skalarnega produkta v koordinatnem sistemu.
-
-\subsection{Primer}
-
-Naj bo $\vect{a}=(1,2,3)$ in $\vect{b}=(4,0,-1)$. Potem je
+\subsection{\texorpdfstring{\textcolor{barvaNaslovaPrimera}{Primer}}{Primer}}
+\begin{primer}
+Naj bo $\vect{a}=(1,2,3)$ in $\vect{b}=(4,0,-1)$. Pomnožimo istoležne komponente in seštejemo:
 \[
 \vect{a}\cdot\vect{b}=1\cdot4+2\cdot0+3\cdot(-1)=4-3=1.
 \]
+\end{primer}
 
 \subsection{Povezava z dolžino}
 
 Iz formule za skalarni produkt s komponentami dobimo
 \[
-\abs{\vect{a}} = \sqrt{a_1^2+a_2^2+a_3^2}.
+\pomembno{\abs{\vect{a}}=\sqrt{a_1^2+a_2^2+a_3^2}.}
 \]
 
 \section{Povzetek}
@@ -298,11 +392,27 @@ Iz formule za skalarni produkt s komponentami dobimo
 Najpomembnejše lastnosti vektorjev so:
 \begin{itemize}[itemsep=4pt]
     \item vektor ima smer, usmerjenost in dolžino,
-    \item seštevamo in odštevamo ga po pravilih za vektorje,
-    \item množenje s skalarjem spreminja dolžino in lahko obrne smer,
+    \item vektorje seštevamo in odštevamo po pravilih za vektorje,
+    \item množenje s skalarjem spremeni dolžino in lahko obrne usmerjenost,
     \item linearno neodvisni vektorji tvorijo bazo,
-    \item skalarni produkt meri, kako sta vektorja usmerjena skupaj,
-    \item s komponentami je računanje z vektorji veliko lažje.
+    \item skalarni produkt je povezan z dolžinama vektorjev in kotom med njima,
+    \item s komponentami je računanje z vektorji preprostejše.
 \end{itemize}
 
 \end{document}
+%3.2 Dodaj okvir »Pogoste napake«
+ %To bi bila po mojem mnenju ena najbolj koristnih izboljšav za dijake. Vstavi ga po posameznih večjih poglavjih ali na koncu dokumenta.
+ %
+ %Primer vsebine:
+ %
+ %Pri odštevanju vektorjev ne pozabimo spremeniti predznakov komponent drugega vektorja.
+ %
+ %Dolžina vektorja je vedno nenegativna.
+ %
+ %Enotskega vektorja ne moremo izračunati za ničelni vektor.
+ %
+ %Linearna neodvisnost ne pomeni, da vektorja nista vzporedna le na skici, temveč da nobenega ni mogoče zapisati kot skalarni večkratnik drugega.
+ %
+ %Skalarni produkt je število, ne vektor.
+ %
+ %Takšni poudarki so za ponavljanje pogosto uporabnejši od dodatne formule.
