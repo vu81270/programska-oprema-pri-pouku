@@ -1,0 +1,16 @@
+# LaTeX build outputs
+*.aux
+*.bcf
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.pdf
+
+# Common build directories
+/build/
+/out/
