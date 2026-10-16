@@ -138,46 +138,67 @@ Vektor je določen s smerjo, usmerjenostjo in dolžino.
 \begin{minipage}[t]{0.38\textwidth}
 \vspace{0pt}
 \centering
-\begin{tikzpicture}[x=0.62cm,y=0.52cm,>=Stealth]
-    \node[font=\small\bfseries, text=barvaNaslovov] at (3.4,7.8) {Enaka vektorja};
-    \draw[->,line width=1.2pt] (0.4,6.9) -- (5.5,6.9) node[midway,above=2pt,fill=white,inner sep=1pt] {$\vect{a}$};
-    \draw[->,line width=1.2pt] (0.4,5.9) -- (5.5,5.9) node[midway,above=2pt,fill=white,inner sep=1pt] {$\vect{b}$};
-    \node[font=\small\bfseries, text=barvaNaslovov] at (3.4,4.2) {Nasprotna vektorja};
-    \draw[->,line width=1.2pt] (0.4,3.2) -- (5.5,3.2) node[midway,above=2pt,fill=white,inner sep=1pt] {$\vect{a}$};
-    \draw[->,line width=1.2pt] (5.5,2.2) -- (0.4,2.2) node[midway,above=2pt,fill=white,inner sep=1pt] {$-\vect{a}$};
-    \node[font=\small\bfseries, text=barvaNaslovov] at (3.4,0.8) {Ničelni vektor};
-    \fill (2.75,0.1) circle (2.2pt);
-    \node[right=5pt] at (2.75,0.1) {$\vect{0}$};
-    \node[font=\scriptsize] at (3.4,-0.8) {začetek = konec};
+\begin{tikzpicture}[x=0.72cm,y=0.58cm,>=Stealth]
+    \node[font=\small\bfseries, text=barvaNaslovov] at (3.4,7.9) {Enaka vektorja};
+    \draw[->,line width=1.2pt] (0.6,6.9) -- (5.9,6.9) node[midway,above=2pt] {$\vect{a}$};
+    \draw[->,line width=1.2pt] (0.6,5.8) -- (5.9,5.8) node[midway,above=2pt] {$\vect{b}$};
+    \node[font=\small\bfseries, text=barvaNaslovov] at (3.4,4.4) {Nasprotna vektorja};
+    \draw[->,line width=1.2pt] (0.6,3.3) -- (5.9,3.3) node[midway,above=2pt] {$\vect{a}$};
+    \draw[->,line width=1.2pt] (5.9,2.3) -- (0.6,2.3) node[midway,above=2pt] {$-\vect{a}$};
+    \node[font=\small\bfseries, text=barvaNaslovov] at (3.1,0.9) {Ničelni vektor};
+    \fill (1.9,0.1) circle (2.2pt);
+    \node[right=7pt] at (1.9,0.1) {$\vect{0}$};
+    \node[font=\scriptsize] at (3.2,-0.7) {začetek = konec};
 \end{tikzpicture}
 \end{minipage}
 \end{bluecard}
 
 \section{Seštevanje in odštevanje vektorjev}
+
 \begin{greencard}{Grafično seštevanje}
 Vektorja seštejemo po pravilu trikotnika ali po pravilu paralelograma.
 
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
 \centering
 \textbf{Trikotniško pravilo}\par\smallskip
 Začetek $\vect{b}$ postavimo v konec $\vect{a}$.
-\begin{tikzpicture}[x=0.85cm,y=0.72cm,>=Stealth]
-    \coordinate (O) at (0,0);\coordinate (A) at (2.2,0);\coordinate (C) at (3.3,1.7);
-    \draw[->,line width=1.2pt,barvaNaslovov] (O) -- (A) node[midway,below=3pt] {$\vect{a}$};
-    \draw[->,line width=1.2pt,barvaDrugiVektor] (A) -- (C) node[midway,right=2pt] {$\vect{b}$};
-    \draw[->,line width=1.5pt,barvaPomembno] (O) -- (C) node[midway,above=1pt] {$\vect{a}+\vect{b}$};
+\vspace{2mm}
+
+\hspace*{-0.7cm}%
+\begin{tikzpicture}[x=0.87cm,y=0.72cm,>=Stealth]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (2.2,0);
+    \coordinate (C) at (3.3,1.7);
+
+    \draw[->,line width=1.2pt,barvaNaslovov]
+        (O) -- (A) node[midway,below=3pt] {$\vect{a}$};
+    \draw[->,line width=1.2pt,barvaDrugiVektor]
+        (A) -- (C) node[midway,right=2pt] {$\vect{b}$};
+    \draw[->,line width=1.5pt,barvaPomembno]
+        (O) -- (C) node[midway,above=1pt] {$\vect{a}+\vect{b}$};
 \end{tikzpicture}
 \end{minipage}\hfill
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
 \centering
 \textbf{Paralelogramsko pravilo}\par\smallskip
 Vektorja začneta v isti točki.
-\begin{tikzpicture}[x=0.85cm,y=0.72cm,>=Stealth]
-    \coordinate (O) at (0,0);\coordinate (A) at (2.2,0);\coordinate (B) at (1.1,1.7);\coordinate (C) at (3.3,1.7);
-    \draw[->,line width=1.2pt,barvaNaslovov] (O) -- (A) node[midway,below=3pt] {$\vect{a}$};
-    \draw[->,line width=1.2pt,barvaDrugiVektor] (O) -- (B) node[midway,left=2pt] {$\vect{b}$};
-    \draw[densely dashed,barvaNaslovov] (B) -- (C);\draw[densely dashed,barvaDrugiVektor] (A) -- (C);
-    \draw[->,line width=1.5pt,barvaPomembno] (O) -- (C) node[midway,above=1pt] {$\vect{a}+\vect{b}$};
+\vspace{2mm}
+
+\hspace*{-0.7cm}%
+\begin{tikzpicture}[x=0.87cm,y=0.72cm,>=Stealth]
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (2.2,0);
+    \coordinate (B) at (1.1,1.7);
+    \coordinate (C) at (3.3,1.7);
+
+    \draw[->,line width=1.2pt,barvaNaslovov]
+        (O) -- (A) node[midway,below=3pt] {$\vect{a}$};
+    \draw[->,line width=1.2pt,barvaDrugiVektor]
+        (O) -- (B) node[midway,left=2pt] {$\vect{b}$};
+    \draw[densely dashed,barvaNaslovov] (B) -- (C);
+    \draw[densely dashed,barvaDrugiVektor] (A) -- (C);
+    \draw[->,line width=1.5pt,barvaPomembno]
+        (O) -- (C) node[midway,above=1pt] {$\vect{a}+\vect{b}$};
 \end{tikzpicture}
 \end{minipage}
 \end{greencard}
@@ -214,8 +235,8 @@ Vektorja začneta v isti točki.
 \section{Množenje vektorja s skalarjem}
 \begin{redcard}{Skalar in smer}
 \vspace{0pt}
-\begin{minipage}[t]{0.54\textwidth}
-Skalar je realno število. Vektor $\vect{a}$ pomnožen s $k$ zapišemo kot $\pomembno{k\vect{a}}$.
+\begin{minipage}[t]{0.60\textwidth}
+Skalar je realno število. Vektor $\vect{a}$ pomnožen s $k$ zapišemo kot~$\pomembno{k\vect{a}}$.
 \begin{itemize}
     \item $\pomembno{\abs{k\vect{a}}=|k|\,\abs{\vect{a}}}$,
     \item $k>0$: ista usmerjenost,
@@ -223,20 +244,22 @@ Skalar je realno število. Vektor $\vect{a}$ pomnožen s $k$ zapišemo kot $\pom
     \item $k=0$: ničelni vektor.
 \end{itemize}
 \end{minipage}\hfill
-\begin{minipage}[t]{0.4\textwidth}
+\begin{minipage}[t]{0.35\textwidth}
 \vspace{0pt}
 \centering
-\begin{tikzpicture}[x=0.72cm,y=0.72cm,>=Stealth]
-    \draw[->,line width=1.3pt,barvaNaslovov] (0,0) -- (2,0) node[midway,below=2pt] {$\vect{a}$};
-    \draw[->,line width=1.5pt,barvaPomembno] (0,0.45) -- (4,0.45) node[midway,above=3pt,fill=white,inner sep=1pt] {$2\vect{a}$};
+\begin{tikzpicture}[x=0.82cm,y=0.82cm,>=Stealth]
+    \draw[->,line width=1.3pt,barvaNaslovov] (0,0) -- (2.2,0) node[midway,below=2pt] {$\vect{a}$};
+    \draw[->,line width=1.5pt,barvaPomembno] (0,0.55) -- (4.5,0.55) node[midway,above=3pt] {$2\vect{a}$};
 \end{tikzpicture}
 \end{minipage}
 \end{redcard}
 
+\newpage
+
 \section{Komponente vektorja}
 \begin{bluecard}{Koordinatni zapis}
 \vspace{0pt}
-\begin{minipage}[t]{0.56\textwidth}
+\begin{minipage}[t]{0.52\textwidth}
 Vektor lahko zapišemo s komponentami v koordinatnem sistemu:
 \[
 \pomembno{\vect{a}=(a_1,a_2)=a_1\vect{i}+a_2\vect{j}.}
@@ -247,13 +270,13 @@ Vektor lahko zapišemo s komponentami v koordinatnem sistemu:
     \item množenje s skalarjem: $\pomembno{k\vect{a}=(ka_1,ka_2)}$.
 \end{itemize}
 \end{minipage}\hfill
-\begin{minipage}[t]{0.38\textwidth}
+\begin{minipage}[t]{0.42\textwidth}
 \vspace{0pt}
 \centering
-\begin{tikzpicture}[x=0.82cm,y=0.72cm,>=Stealth]
-    \coordinate (O) at (0,0);\coordinate (X) at (2.4,0);\coordinate (A) at (2.4,1.7);
-    \draw[->,gray!80!black] (-0.3,0) -- (3.1,0) node[right] {$x$};
-    \draw[->,gray!80!black] (0,-0.3) -- (0,2.3) node[above] {$y$};
+\begin{tikzpicture}[x=0.92cm,y=0.82cm,>=Stealth]
+    \coordinate (O) at (0,0);\coordinate (X) at (2.6,0);\coordinate (A) at (2.6,1.9);
+    \draw[->,gray!80!black] (-0.3,0) -- (3.3,0) node[right] {$x$};
+    \draw[->,gray!80!black] (0,-0.3) -- (0,2.6) node[above] {$y$};
     \draw[densely dashed,gray] (A) -- (X);
     \draw[->,line width=1.2pt,barvaDrugiVektor] (O) -- (X) node[midway,below=2pt] {$a_1$};
     \draw[->,line width=1.2pt,barvaPomembno] (X) -- (A) node[midway,right=2pt] {$a_2$};
@@ -297,7 +320,7 @@ Enotski vektor v smeri $\vect{a}$ ima dolžino $1$:
 \begin{graycard}{Primer}
 Za $\vect{a}=(3,4)$ je $\abs{\vect{a}}=5$, torej
 \[
-\vect{a}_e=\left(\frac35,\frac45\right).
+\vect{a}_e=\frac{1}{5}(3,4)=\left(\frac35,\frac45\right).
 \]
 \end{graycard}
 \end{minipage}
