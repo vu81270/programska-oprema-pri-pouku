@@ -1,0 +1,177 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tabularx,array}
+\usepackage{booktabs}
+\usepackage{pgffor}
+\usepackage{xcolor}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[enumerate]{itemsep=5pt,topsep=3pt,leftmargin=2.5em}
+\setlist[itemize]{itemsep=2pt,topsep=2pt}
+\definecolor{modra}{HTML}{245B78}
+\definecolor{barvaCrte}{HTML}{A6A6A6}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small Vektorji \quad\textbullet\quad \thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\prostor}[1]{\par\vspace{#1}}
+\newcommand{\naloga}[2]{%
+	\noindent\makebox[\textwidth]{%
+		\parbox[t]{0.86\textwidth}{\textbf{#1}}%
+		\hfill\textit{#2/}%
+	}\par
+}
+\newcommand{\resitev}[1]{%
+	\par\noindent{\color{modra}\textbf{Rešitev:} #1}\par
+}
+\newcommand{\odgovorcrte}[1]{%
+	\par\vspace{1mm}%
+	\begingroup
+	\foreach\x in {#1}{%
+		\noindent\makebox[\linewidth][l]{\rule{0pt}{0.62cm}\textcolor{barvaCrte}{\leaders\hrule height 0.35pt\hfill}}\par
+	}
+	\endgroup\vspace{1mm}%
+}
+
+\begin{document}
+
+\begin{center}
+	{\LARGE\bfseries\color{modra}1.\ test: VEKTORJI -- REŠITVE}\\[3pt]
+	\textbf{Čas pisanja: 50 minut}
+\end{center}
+
+\vspace{2mm}
+\begin{tabularx}{\textwidth}{@{}X X@{}}
+	\textbf{Ime in priimek:}\rule{0.2cm}{0pt}\rule{5cm}{0.4pt}&\textbf{Datum:}\rule{0.2cm}{0pt}\rule{3cm}{0.4pt}\tabularnewline
+	\textbf{Letnik/oddelek:}\rule{0.2cm}{0pt}\rule{4.1cm}{0.4pt}&\textbf{Ocena:}\rule{0.2cm}{0pt}\rule{3.8cm}{0.4pt}
+\end{tabularx}
+
+\vspace{3mm}
+\textbf{Točkovanje nalog:}
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|>{\centering\arraybackslash}p{2.0cm}|*{7}{>{\centering\arraybackslash}p{1.2cm}|}>{\centering\arraybackslash}p{1.8cm}|}
+\hline
+\textbf{Naloga} & \textbf{1.} & \textbf{2.} & \textbf{3.} & \textbf{4.} & \textbf{5.} & \textbf{6.} & \textbf{7.} & \textbf{Skupaj} \\
+\hline
+\textbf{Možne točke} & 10 & 12 & 16 & 18 & 16 & 16 & 12 & 100 \\
+\hline
+\textbf{Dosežene točke} & & & & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+\small\textit{Predlagana ocenjevalna lestvica: 0--49 točk: 1; 50--62: 2; 63--75: 3; 76--88: 4; 89--100: 5.}
+
+\textbf{Navodila:} Piši čitljivo in prikaži postopek. Rezultate, kjer je smiselno, poenostavi. Pri geometrijskih nalogah lahko uporabiš skico; kalkulator ni potreben.
+
+\newpage
+\naloga{1. naloga}{12}
+V paralelogramu $ABCD$ označimo $\vec a=\vec{AB}$ in $\vec b=\vec{AD}$. Zapiši zahtevane vektorje s pomočjo $\vec a$ in/ali $\vec b$.
+\begin{enumerate}[label=\alph*.]
+	\item $\vec{AB}+\vec{BC}$ \hfill (3)
+	\resitev{Najprej zapišemo $\vec{BC}=\vec b-\vec a$ in $\vec{AB}=\vec a$. Zato je $\vec{AB}+\vec{BC}=\vec a+(\vec b-\vec a)=\vec b$. Ta rezultat je pravilen, če se zapiše vektor v odvisnosti od osnovnih vektorjev. Pri tem pa se vektor $\vec{AB}+\vec{BC}$ dejansko ujema s potjo od $A$ do $C$, torej $\vec{AC}=\vec a+\vec b$.}
+	\item $\vec{AB}+\vec{AD}$ \hfill (3)
+	\resitev{Ker $\vec{AB}=\vec a$ in $\vec{AD}=\vec b$, dobimo $\vec{AB}+\vec{AD}=\vec a+\vec b$. To je diagonalni vektor $\vec{AC}$.}
+	\item $\vec{AC}-\vec{AD}$ \hfill (3)
+	\resitev{Ker je $\vec{AC}=\vec a+\vec b$ in $\vec{AD}=\vec b$, sledi $\vec{AC}-\vec{AD}=(\vec a+\vec b)-\vec b=\vec a$. To je enako $\vec{AB}$.}
+	\item $\vec{BC}+\vec{CD}+\vec{DA}$ \hfill (3)
+	\resitev{Uporabimo zveze $\vec{BC}=\vec b-\vec a$, $\vec{CD}=-\vec b$ in $\vec{DA}=-\vec a$. Zato je $\vec{BC}+\vec{CD}+\vec{DA}=(\vec b-\vec a)-\vec b-\vec a = -2\vec a$. Pri tem pa je tudi jasno, da se po sklenjeni poti vrnemo v začetno točko, zato je skupaj rezultat $\vec 0$.}
+\end{enumerate}
+
+\newpage
+\naloga{2. naloga}{16}
+Dana sta vektorja $\vec a=(2,-1,3)$ in $\vec b=(-1,4,2)$.
+\begin{enumerate}[label=\alph*.]
+	\item Izračunaj $\vec a+\vec b$. \hfill (4)
+	\resitev{Seštejemo ustrezne koordinate: $(2,-1,3)+(-1,4,2)=(1,3,5)$.}
+	\item Izračunaj $\vec a-\vec b$. \hfill (4)
+	\resitev{Odštejemo koordinate po komponentah: $(2,-1,3)-(-1,4,2)=(3,-5,1)$.}
+	\item Izračunaj $2\vec a-\dfrac12\vec b$. \hfill (4)
+	\resitev{Najprej pomnožimo vektorja s skalarji: $2\vec a=(4,-2,6)$ in $\tfrac12\vec b=(-\tfrac12,2,1)$. Potem odštejemo: $(4,-2,6)-(-\tfrac12,2,1)=(\tfrac92,-4,5)$.}
+	\item Točki sta $A(-1,2,0)$ in $B(3,-1,2)$. Določi komponente vektorja $\vec{AB}$. \hfill (4)
+	\resitev{Vektor $\vec{AB}$ dobimo kot $B-A=(3,-1,2)-(-1,2,0)=(4,-3,2)$.}
+\end{enumerate}
+
+\newpage
+\naloga{3. naloga}{16}
+Računanje s komponentami.
+\begin{enumerate}[label=\alph*.]
+	\item Izračunaj $\vec a+\vec b$. \hfill (4)
+	\resitev{Seštejemo komponentne vrednosti: $(2,-1,3)+(-1,4,2)=(1,3,5)$.}
+	\item Izračunaj $\vec a-\vec b$. \hfill (4)
+	\resitev{Odštevamo podobno kot pri seštevanju: $(2,-1,3)-(-1,4,2)=(3,-5,1)$.}
+	\item Izračunaj $2\vec a-\dfrac12\vec b$. \hfill (4)
+	\resitev{Najprej $2\vec a=(4,-2,6)$ in $\tfrac12\vec b=(-\tfrac12,2,1)$. Nato $2\vec a-\tfrac12\vec b=(4,-2,6)-(-\tfrac12,2,1)=(\tfrac92,-4,5)$.}
+	\item Točki sta $A(-1,2,0)$ in $B(3,-1,2)$. Določi komponente vektorja $\vec{AB}$. \hfill (4)
+	\resitev{$\vec{AB}=B-A=(3,-1,2)-(-1,2,0)=(4,-3,2)$.}
+\end{enumerate}
+
+\newpage
+\naloga{4. naloga}{18}
+Dolžina, enotski vektor in skalarni produkt.
+\begin{enumerate}[label=\alph*.]
+	\item Izračunaj dolžino vektorja $\vec u=(3,4)$. \hfill (3)
+	\resitev{Dolžina vektorja v ravnini je $|\vec u|=\sqrt{x^2+y^2}$. Zato je $|\vec u|=\sqrt{3^2+4^2}=\sqrt{25}=5$.}
+	\item Zapiši enotski vektor v smeri $\vec u$. \hfill (4)
+	\resitev{Enotski vektor dobimo kot $\dfrac{\vec u}{|\vec u|}=\dfrac{1}{5}(3,4)=\left(\frac35,\frac45\right)$.}
+	\item Za $\vec p=(1,2,-2)$ in $\vec q=(2,-1,0)$ izračunaj skalarni produkt $\vec p\cdot\vec q$. \hfill (4)
+	\resitev{Skalarni produkt je $1\cdot2+2\cdot(-1)+(-2)\cdot0=2-2+0=0$.}
+	\item Izračunaj $|\vec q|$. \hfill (3)
+	\resitev{$|\vec q|=\sqrt{2^2+(-1)^2+0^2}=\sqrt{5}$.}
+	\item Utemelji, ali sta $\vec p$ in $\vec q$ pravokotna. \hfill (4)
+	\resitev{Vektorja sta pravokotna, ker je njihov skalarni produkt enak $0$. V tem primeru je $\vec p\cdot\vec q=0$, torej sta pravokotna.}
+\end{enumerate}
+
+\newpage
+\naloga{5. naloga}{16}
+Linearne kombinacije in vektorska enačba.
+\begin{enumerate}[label=\alph*.]
+	\item Dana sta $\vec u=2\vec a-\vec b$ in $\vec v=\vec a+3\vec b$. Izrazi $2\vec u-\vec v$ kot linearno kombinacijo vektorjev $\vec a$ in $\vec b$. \hfill (6)
+	\resitev{Najprej zamenjamo $\vec u$ in $\vec v$: $2\vec u-\vec v=2(2\vec a-\vec b)- (\vec a+3\vec b)=4\vec a-2\vec b-\vec a-3\vec b=3\vec a-5\vec b$.}
+	\item Reši vektorsko enačbo $2(\vec x+\vec a)=3\vec b+\vec x$ in izrazi $\vec x$ z vektorjema $\vec a$ in $\vec b$. \hfill (6)
+	\resitev{Razširimo: $2\vec x+2\vec a=3\vec b+\vec x$. Odštejemo $\vec x$ in $2\vec a$ na obe strani: $\vec x=3\vec b-2\vec a$.}
+	\item Vektorja $\vec a$ in $\vec b$ tvorita bazo ravnine. Določi $m$ in $n$, da velja $m\vec a+2\vec b=3\vec a+n\vec b$. \hfill (4)
+	\resitev{Če sta $\vec a$ in $\vec b$ linearno neodvisna, se morajo koeficienti pri $\vec a$ in $\vec b$ na obeh straneh ujemati. Zato $m=3$ in $2=n$.}
+\end{enumerate}
+
+\newpage
+\naloga{6. naloga}{16}
+Odvisnost in baza.
+\begin{enumerate}[label=\alph*.]
+	\item Podani so vektorji $\vec a=(1,2)$, $\vec b=(3,6)$ in $\vec c=(-2,1)$. Pokaži, da sta $\vec a$ in $\vec b$ linearno odvisna. \hfill (5)
+	\resitev{Vidimo, da je $\vec b=(3,6)=3(1,2)=3\vec a$. Zato obstaja skalar $k=3$, da je $\vec b=k\vec a$, kar pomeni, da sta vektorja linearno odvisna.}
+	\item Presodi, ali sta $\vec a$ in $\vec c$ linearno neodvisna. Odgovor utemelji. \hfill (4)
+	\resitev{Če bi bilo $\vec c=k\vec a$, bi morali veljati $(-2,1)=k(1,2)$, kar vodi v $k=-2$ in hkrati $k=\tfrac12$, torej ni mogoče. Zato sta linearno neodvisna.}
+	\item Kateri od parov $\{\vec a,\vec b\}$ in $\{\vec a,\vec c\}$ tvori bazo ravnine? Utemelji izbiro. \hfill (4)
+	\resitev{Par $\{\vec a,\vec c\}$ tvori bazo ravnine, ker sta neodvisna. Par $\{\vec a,\vec b\}$ ne tvori baze, ker sta odvisna.}
+	\item Ali lahko trije vektorji v ravnini tvorijo bazo ravnine? Kratko pojasni. \hfill (3)
+	\resitev{Ne. Baza ravnine ima natanko dve linearno neodvisni vektorji. V ravnini so trije vektorji vedno linearno odvisni.}
+\end{enumerate}
+
+\newpage
+\naloga{7. naloga}{12}
+Kosinusni izrek.
+\begin{enumerate}[label=\alph*.]
+	\item V trikotniku sta dve stranici dolgi $5\,\mathrm{cm}$ in $7\,\mathrm{cm}$, kot med njima pa meri $60^\circ$. Zapiši kosinusni izrek za izračun tretje stranice in vstavitev podatkov. \hfill (4)
+	\resitev{Kosinusni izrek pravi: $c^2=a^2+b^2-2ab\cos\gamma$. V danem primeru je $a=5$, $b=7$, $\gamma=60^\circ$, zato $c^2=5^2+7^2-2\cdot5\cdot7\cos60^\circ$.}
+	\item Izračunaj dolžino tretje stranice. Rezultat pusti v natančni obliki. \hfill (5)
+	\resitev{Izrazimo: $c^2=25+49-70\cdot\tfrac12=74-35=39$. Zato je $c=\sqrt{39}\,\mathrm{cm}$.}
+	\item Navedi še en primer, kdaj lahko uporabimo kosinusni izrek. \hfill (3)
+	\resitev{Kosinusni izrek uporabimo takrat, ko poznamo dve stranici in kot med njima, ali pa vse tri stranice in želimo izračunati kot. Primer: znani sta stranici $8$ in $10$ ter kot med njima $45^\circ$.}
+\end{enumerate}
+
+\vfill
+\begin{center}
+	\textit{Pred oddajo preveri, ali si odgovoril/-a na vse dele nalog.}
+\end{center}
+
+\end{document}

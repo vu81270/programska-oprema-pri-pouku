@@ -23,7 +23,13 @@
 \fancyhf{}
 \fancyfoot[C]{\small Vektorji \quad\textbullet\quad \thepage/\pageref{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
-\newcommand{\tocke}[1]{\hfill\textit{(#1 točk)}}
+\newcommand{\tocke}[1]{\hfill\textit{#1/}}
+\newcommand{\naloga}[2]{%
+	\noindent\makebox[\textwidth]{%
+		\parbox[t]{0.86\textwidth}{\textbf{#1}}% 
+		\hfill\textit{#2/}%
+	}\par
+}
 \newcommand{\odgovorcrte}[1]{%
 	\par\vspace{1mm}%
 	\begingroup
@@ -50,32 +56,22 @@
 \vspace{3mm}
 \textbf{Točkovanje nalog:}
 \begin{center}
-\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{c*{7}{>{\centering\arraybackslash}p{0.9cm}}>{\centering\arraybackslash}p{1.2cm}}
-\toprule
-Naloga & 1. & 2. & 3. & 4. & 5. & 6. & 7. & Skupaj \\
-\midrule
-Možne točke & 10 & 12 & 16 & 18 & 16 & 16 & 12 & 100 \\
-\midrule
-Dosežene točke & & & & & & & & \\
-\bottomrule
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|>{\centering\arraybackslash}p{2.0cm}|*{7}{>{\centering\arraybackslash}p{1.2cm}|}>{\centering\arraybackslash}p{1.8cm}|}
+\hline
+\textbf{Naloga} & \textbf{1.} & \textbf{2.} & \textbf{3.} & \textbf{4.} & \textbf{5.} & \textbf{6.} & \textbf{7.} & \textbf{Skupaj} \\
+\hline
+\textbf{Možne točke} & 10 & 12 & 16 & 18 & 16 & 16 & 12 & 100 \\
+\hline
+\textbf{Dosežene točke} & & & & & & & & \\
+\hline
 \end{tabular}
 \end{center}
 \small\textit{Predlagana ocenjevalna lestvica: 0--49 točk: 1; 50--62: 2; 63--75: 3; 76--88: 4; 89--100: 5.}
 
 \textbf{Navodila:} Piši čitljivo in prikaži postopek. Rezultate, kjer je smiselno, poenostavi. Pri geometrijskih nalogah lahko uporabiš skico; kalkulator ni potreben.
 
-\section*{1. Osnovni pojmi}\tocke{10}
-\begin{enumerate}[label=\alph*.]
-	\item Naštej tri podatke, ki določajo vektor. \hfill (3)
-	\odgovorcrte{1,2}
-	\item Kdaj sta dva vektorja enaka? Zapiši vse potrebne pogoje. \hfill (3)
-	\odgovorcrte{1,2}
-	\item Naj bo $|\vec a|=4$. Za vektor $-\dfrac12\vec a$ določi dolžino ter povej, kako sta njegova smer in usmerjenost povezani z vektorjem $\vec a$. \hfill (4)
-	\odgovorcrte{1,2,3}
-\end{enumerate}
-
-\section*{2. Vektorji v paralelogramu}\tocke{12}
+\naloga{1. naloga}{12}
 V paralelogramu $ABCD$ označimo $\vec a=\vec{AB}$ in $\vec b=\vec{AD}$. Zapiši zahtevane vektorje s pomočjo $\vec a$ in/ali $\vec b$.
 \begin{enumerate}[label=\alph*.]
 	\item $\vec{AB}+\vec{BC}$ \hfill (3)
@@ -89,7 +85,7 @@ V paralelogramu $ABCD$ označimo $\vec a=\vec{AB}$ in $\vec b=\vec{AD}$. Zapiši
 \end{enumerate}
 
 \newpage
-\section*{3. Računanje s komponentami}\tocke{16}
+\naloga{2. naloga}{16}
 Dana sta vektorja $\vec a=(2,-1,3)$ in $\vec b=(-1,4,2)$.
 \begin{enumerate}[label=\alph*.]
 	\item Izračunaj $\vec a+\vec b$. \hfill (4)
@@ -102,7 +98,10 @@ Dana sta vektorja $\vec a=(2,-1,3)$ in $\vec b=(-1,4,2)$.
 	\prostor{1.2cm}
 \end{enumerate}
 
-\section*{4. Dolžina, enotski vektor in skalarni produkt}\tocke{18}
+
+\newpage
+\naloga{3. naloga}{18}
+Dolžina, enotski vektor in skalarni produkt.
 \begin{enumerate}[label=\alph*.]
 	\item Izračunaj dolžino vektorja $\vec u=(3,4)$. \hfill (3)
 	\prostor{1cm}
@@ -117,42 +116,27 @@ Dana sta vektorja $\vec a=(2,-1,3)$ in $\vec b=(-1,4,2)$.
 \end{enumerate}
 
 \newpage
-\section*{5. Linearne kombinacije in vektorska enačba}\tocke{16}
+\naloga{4. naloga}{16}
+Linearne kombinacije in vektorska enačba.
 \begin{enumerate}[label=\alph*.]
 	\item Dana sta $\vec u=2\vec a-\vec b$ in $\vec v=\vec a+3\vec b$. Izrazi $2\vec u-\vec v$ kot linearno kombinacijo vektorjev $\vec a$ in $\vec b$. \hfill (6)
 	\prostor{1.8cm}
 	\item Reši vektorsko enačbo $2(\vec x+\vec a)=3\vec b+\vec x$ in izrazi $\vec x$ z vektorjema $\vec a$ in $\vec b$. \hfill (6)
 	\prostor{1.8cm}
-	\item Vektorja $\vec a$ in $\vec b$ tvorita bazo ravnine. Določi $m$ in $n$, da velja
-	\[
-		m\vec a+2\vec b=3\vec a+n\vec b.
-	\]
-	\hfill (4)
-	\prostor{1.8cm}
+
 \end{enumerate}
 
 \newpage
-\section*{6. Odvisnost in baza}\tocke{16}
-Podani so vektorji $\vec a=(1,2)$, $\vec b=(3,6)$ in $\vec c=(-2,1)$.
+\naloga{5. naloga}{16}
+Odvisnost in baza. Podani so vektorji $\vec a=(1,2)$, $\vec b=(3,6)$ in $\vec c=(-2,1)$.
 \begin{enumerate}[label=\alph*.]
-	\item Pokaži, da sta $\vec a$ in $\vec b$ linearno odvisna. \hfill (5)
+	\item  Pokaži, da sta $\vec a$ in $\vec b$ linearno odvisna. \hfill (5)
 	\odgovorcrte{1,2,3}
 	\item Presodi, ali sta $\vec a$ in $\vec c$ linearno neodvisna. Odgovor utemelji. \hfill (4)
 	\odgovorcrte{1,2,3}
 	\item Kateri od parov $\{\vec a,\vec b\}$ in $\{\vec a,\vec c\}$ tvori bazo ravnine? Utemelji izbiro. \hfill (4)
 	\odgovorcrte{1,2,3}
 	\item Ali lahko trije vektorji v ravnini tvorijo bazo ravnine? Kratko pojasni. \hfill (3)
-	\odgovorcrte{1,2}
-\end{enumerate}
-
-\section*{7. Kosinusni izrek}\tocke{12}
-V trikotniku sta dve stranici dolgi $5\,\mathrm{cm}$ in $7\,\mathrm{cm}$, kot med njima pa meri $60^\circ$.
-\begin{enumerate}[label=\alph*.]
-	\item Zapiši kosinusni izrek za izračun tretje stranice in vstavitev podatkov. \hfill (4)
-	\odgovorcrte{1,2}
-	\item Izračunaj dolžino tretje stranice. Rezultat pusti v natančni obliki. \hfill (5)
-	\odgovorcrte{1,2,3}
-	\item Navedi še en primer, kdaj lahko uporabimo kosinusni izrek. \hfill (3)
 	\odgovorcrte{1,2}
 \end{enumerate}
 
