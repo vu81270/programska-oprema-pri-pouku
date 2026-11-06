@@ -65,15 +65,19 @@ class KonstrukcijaTangente(Scene):
             Circle(radius=0.38, color=BLUE_C, stroke_width=5),
             Text("1", font_size=34, color=BLUE_C, weight=BOLD),
         ).move_to(UP * 6.25)
-        naslov = Text(
-            "Točka T leži v\nkrožnici K",
-            font_size=42,
+        naslov = Paragraph(
+            "Točka T leži v",
+            "krožnici K",
+            font_size=48,
             line_spacing=0.9,
+            alignment="center",
         ).move_to(UP * 4.8)
 
         kroznica = Circle(radius=2.1, color=BLUE_C, stroke_width=6)
         sredisce = Dot(ORIGIN, color=WHITE, radius=0.08)
-        oznaka_k = Text("K", font_size=36).next_to(sredisce, DL, buff=0.12)
+        oznaka_k = Text("K", font_size=36).next_to(
+            sredisce, DL, buff=0.12
+        )
         tocka_t = Dot(RIGHT * 0.55 + UP * 0.45, color=YELLOW, radius=0.1)
         oznaka_t = Text("T", font_size=36, color=YELLOW).next_to(
             tocka_t, UR, buff=0.12
@@ -96,10 +100,12 @@ class KonstrukcijaTangente(Scene):
             Circle(radius=0.38, color=BLUE_C, stroke_width=5),
             Text("2", font_size=34, color=BLUE_C, weight=BOLD),
         ).move_to(UP * 6.25)
-        naslov = Text(
-            "Točka T leži na\nkrožnici K",
-            font_size=42,
+        naslov = Paragraph(
+            "Točka T leži na",
+            "krožnici K",
+            font_size=48,
             line_spacing=0.9,
+            alignment="center",
         ).move_to(UP * 4.8)
 
         sredisce = UP * 0.65
@@ -144,11 +150,13 @@ class KonstrukcijaTangente(Scene):
             font_size=31,
             color=GREEN_C,
         ).move_to(DOWN * 2.25)
-        pravilo_tangenta = Text(
-            "Skozi T narišemo\npravokotnico na polmer.",
+        pravilo_tangenta = Paragraph(
+            "Skozi T narišemo",
+            "pravokotnico na polmer.",
             font_size=29,
             color=YELLOW,
             line_spacing=0.9,
+            alignment="center",
         ).move_to(DOWN * 4.0)
 
         self.play(FadeIn(stevilka), Write(naslov), run_time=1.5)
@@ -171,10 +179,12 @@ class KonstrukcijaTangente(Scene):
             Circle(radius=0.38, color=BLUE_C, stroke_width=5),
             Text("3", font_size=34, color=BLUE_C, weight=BOLD),
         ).move_to(UP * 6.25)
-        naslov = Text(
-            "Točka T leži izven\nkrožnice K",
-            font_size=42,
+        naslov = Paragraph(
+            "Točka T leži izven",
+            "krožnice K",
+            font_size=48,
             line_spacing=0.9,
+            alignment="center",
         ).move_to(UP * 4.8)
 
         s = LEFT * 1.35 + UP * 0.8
@@ -194,14 +204,18 @@ class KonstrukcijaTangente(Scene):
             stroke_width=6,
         ).move_to(s)
         tocka_s = Dot(s, color=WHITE, radius=0.08)
-        oznaka_s = Text("S", font_size=32).next_to(tocka_s, DL, buff=0.1)
+        oznaka_s = Text("S", font_size=34).next_to(
+            tocka_s, DL, buff=0.1
+        )
         tocka_t = Dot(t, color=YELLOW, radius=0.1)
-        oznaka_t = Text("T", font_size=32, color=YELLOW).next_to(
+        oznaka_t = Text("T", font_size=34, color=YELLOW).next_to(
             tocka_t, UR, buff=0.1
         )
         daljica_st = Line(s, t, color=GREEN_C, stroke_width=6)
         tocka_m = Dot(sredina_st, color=WHITE, radius=0.08)
-        oznaka_m = Text("M", font_size=30).next_to(tocka_m, DOWN, buff=0.1)
+        oznaka_m = Text("M", font_size=32).next_to(
+            tocka_m, DOWN, buff=0.1
+        )
         pomocna_kroznica = Circle(
             radius=radij_pomozne,
             color=PURPLE_B,
@@ -210,10 +224,10 @@ class KonstrukcijaTangente(Scene):
 
         dotik_a = Dot(presecisce_a, color=YELLOW, radius=0.09)
         dotik_b = Dot(presecisce_b, color=YELLOW, radius=0.09)
-        oznaka_a = Text("A", font_size=28, color=YELLOW).next_to(
+        oznaka_a = Text("A", font_size=30, color=YELLOW).next_to(
             dotik_a, LEFT, buff=0.12
         )
-        oznaka_b = Text("B", font_size=28, color=YELLOW).next_to(
+        oznaka_b = Text("B", font_size=30, color=YELLOW).next_to(
             dotik_b, LEFT, buff=0.12
         )
         podaljsek_tangent = 0.8
@@ -228,32 +242,32 @@ class KonstrukcijaTangente(Scene):
 
         pravilo_tales = Text(
             "Pomagamo si s Talesovim izrekom v polkrogu.",
-            font_size=26,
+            font_size=30,
             line_spacing=0.9,
         ).move_to(DOWN * 3.0)
         pravilo_daljica = Text(
             "Narišemo daljico ST.",
-            font_size=30,
+            font_size=34,
             color=GREEN_C,
         ).move_to(DOWN * 3.0)
         pravilo_sredina = Text(
             "Daljico razpolovimo; dobimo središče M.",
-            font_size=27,
+            font_size=31,
             color=GREEN_C,
         ).move_to(DOWN * 3.0)
         pravilo_kroznica = Text(
             "Narišemo krožnico s središčem M.",
-            font_size=27,
+            font_size=31,
             color=PURPLE_B,
         ).move_to(DOWN * 3.0)
         pravilo_dotik = Text(
             "Presečišči A in B sta dotikališči tangent.",
-            font_size=26,
+            font_size=30,
             color=YELLOW,
         ).move_to(DOWN * 3.0)
         pravilo_tangenti = Text(
             "Skozi T in A ter T in B narišemo tangenti.",
-            font_size=26,
+            font_size=30,
             color=YELLOW,
         ).move_to(DOWN * 3.0)
 
@@ -264,44 +278,44 @@ class KonstrukcijaTangente(Scene):
             Write(pravilo_tales),
             run_time=1.5,
         )
-        self.wait(1)
+        self.wait(2)
         self.play(
             Transform(pravilo_tales, pravilo_daljica),
             Create(daljica_st),
             run_time=1.5,
         )
-        self.wait(0.5)
+        self.wait(1.5)
         self.play(
             Transform(pravilo_tales, pravilo_sredina),
             FadeIn(tocka_m, oznaka_m),
             run_time=1.5,
         )
-        self.wait(0.5)
+        self.wait(1.5)
         self.play(
             Transform(pravilo_tales, pravilo_kroznica),
             Create(pomocna_kroznica),
             run_time=1.5,
         )
-        self.wait(0.5)
+        self.wait(1.5)
         self.play(
             Transform(pravilo_tales, pravilo_dotik),
             FadeIn(dotik_a, dotik_b, oznaka_a, oznaka_b),
             run_time=1.5,
         )
-        self.wait(0.5)
+        self.wait(1.5)
         self.play(
             Transform(pravilo_tales, pravilo_tangenti),
             Create(tangenta_a),
             Create(tangenta_b),
             run_time=1.5,
         )
-        self.wait(2)
+        self.wait(6)
 
     def povzetek(self):
-        radij = 0.78
-        sredisce_1 = LEFT * 1.35 + UP * 4.5
-        sredisce_2 = LEFT * 1.35
-        sredisce_3 = LEFT * 1.35 + DOWN * 4.5
+        radij = 1.3
+        sredisce_1 = LEFT * 0.3 + UP * 4.5
+        sredisce_2 = LEFT * 0.3
+        sredisce_3 = LEFT * 0.3 + DOWN * 4.5
 
         kroznica_1 = Circle(radius=radij, color=BLUE_C, stroke_width=6)
         kroznica_1.move_to(sredisce_1)
@@ -330,7 +344,7 @@ class KonstrukcijaTangente(Scene):
         kroznica_3 = Circle(radius=radij, color=BLUE_C, stroke_width=6)
         kroznica_3.move_to(sredisce_3)
         sredina_3 = Dot(sredisce_3, color=WHITE, radius=0.07)
-        t_3 = RIGHT * 2.15 + DOWN * 4.5
+        t_3 = RIGHT * 3.2 + DOWN * 4.5
         tocka_3 = Dot(t_3, color=YELLOW, radius=0.09)
         oznaka_t_3 = Text("T", font_size=26, color=YELLOW).next_to(
             tocka_3, UR, buff=0.1
@@ -363,16 +377,16 @@ class KonstrukcijaTangente(Scene):
         self.play(Create(kroznica_1), run_time=1.2)
         self.play(FadeIn(sredina_1), run_time=0.6)
         self.play(FadeIn(tocka_1, oznaka_t_1), run_time=0.6)
-        self.wait(2)
+        self.wait(1.2)
 
         self.play(Create(kroznica_2), run_time=1.2)
         self.play(FadeIn(sredina_2), run_time=0.6)
         self.play(FadeIn(tocka_2, oznaka_t_2), run_time=0.6)
         self.play(Create(tangenta_2), run_time=1)
-        self.wait(2)
+        self.wait(1.2)
 
         self.play(Create(kroznica_3), run_time=1.2)
         self.play(FadeIn(sredina_3), run_time=0.6)
         self.play(FadeIn(tocka_3, oznaka_t_3), run_time=0.6)
         self.play(Create(tangenti_3), run_time=1.2)
-        self.wait(4.8)
+        self.wait(1.8)
